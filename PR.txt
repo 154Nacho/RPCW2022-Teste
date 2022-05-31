@@ -1,0 +1,43 @@
+Pedro Miguel de Soveral Pacheco Barbosa PG47577 31/05/2022
+
+Exercício 1
+
+1. Para os dados das cidades e ligações disponibilizados comecei por dividi-los em dois ficheiros .json diferentes,
+um que continha informação relativa às cidades e outro informação relativa às ligações.
+
+2. Seguidamente inicializei o mongo com o comando mongod --dbpath MongoData --fork --logpath MongoLogs.txt no terminal.
+Depois, fui à dir onde se encontram os json que pretendo importar para o mongo e realizei dois comandos distintos:
+mongoimport -d MAPA2022 -c cidades cidades.json --jsonArray
+mongoimport -d MAPA2022 -c ligacoes ligacoes.json --jsonArray
+Assim, basicamente criei uma base de dados chamada MAPA2022 e, em seguida, duas collections uma para as cidades e outra
+para as ligações.
+Finalmente, corri o comando npx express-generator --view=pug mapa onde iria trabalhar e construir o servidor.
+
+3. Por fim, desenvolvi um servidor nodejs que dá suporte à API de dados em cima descrita. 
+De forma a correr, basta ir à pasta mapa que se encontra dentro da pasta do exercício 1 e, no terminal,
+correr o seguinte comando: npm start. O servidor encontra-se a correr em nodemon na porta 8005.
+
+Exercício 2
+
+1. Primeiramente, comecei por recorrer ao Postman para responder às perguntas feitas. As respostas encontram-se em seguida:
+    
+    Pergunta 1 - 18 Processos Nível 3
+                    ['750.10.001', '750.10.002', '750.10.300', '750.10.600', '750.10.601', '750.10.602', '750.20.001',
+                    '750.20.002', '750.20.003', '750.20.300', '750.20.301', '750.20.600', '750.20.601', '750.30.001',
+                    '750.30.300', '750.30.600', '750.30.601', '750.30.602']
+
+    Pergunta 2 - 647 Entidades
+
+    Pergunta 3 - 7 Processos
+
+    Pergunta 4 - 24 Processos
+
+2. De seguida, fiz um POST para http://clav-api.di.uminho.pt/v2/users/login com as credenciais
+(username: "rpcw2022@gmail.com", password="2022") de forma a obter um token. Guardei-o no ficheiro 'token.txt'
+que, mais tarde, leio de forma a obter o token, guardá-lo numa variável e utilizá-lo.
+
+3. Seguidamente, corri o comando npx express-generator --view=pug classestermos onde, iniciei o segundo exercício tal 
+como pedido nas diferentes alíneas. 
+
+4. De forma a correr o exercício, basta ir à pasta classestermos e correr o comando 'npm start'. A aplicação criada 
+encontra-se a correr em nodemon na porta 8005. 
