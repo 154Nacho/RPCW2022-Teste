@@ -44,9 +44,9 @@ module.exports.listarPorDistrito = function(d) {
 // 4.6. GET /api/ligacoes?origem=XX - Devolve a lista de ligações que têm a cidade XX como origem, 
 // a lista deverá ter os seguintes campos: id da ligação, id da cidade destino, nome da cidade destino;
 module.exports.listarOrigemLigacao = function(o) {
-    var origem = RegExp(o)
     return Ligacao
-            .find({origem: origem},{_id:0,id:1,destino:1})
+            .find({origem: o},{_id:0,id:1,destino:1})
+            .exec()
 }
 
 // 4.7. GET /api/ligacoes?dist=YY - Devolve a lista de ligações que têm uma distância maior ou igual a YY,
@@ -55,4 +55,5 @@ module.exports.listarOrigemLigacao = function(o) {
 module.exports.listarLigacoesDistancia = function() {
     return Ligacao
             .find({},{_id:0,id:1,origem:1,destino:1})
+            .exec()
 }

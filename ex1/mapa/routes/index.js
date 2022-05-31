@@ -62,4 +62,31 @@ router.get('/distritos', function(req,res){
     })
 })
 
+router.get('/ligacoes', function(req,res){
+  if(req.query['origem'] != undefined) {
+    Mapa.listarOrigemLigacao(req.query['origem'])
+      .then( dados => {
+        res.status(200).jsonp(dados)
+      })
+      .catch(e => {
+        res.status(505).jsonp({error: e})
+      })
+  }
+  else if(req.query['dist'] != undefined) {
+    Mapa.listarLigacoesDistancia()
+      .then(dados => {
+        var final = []
+        dados.forEach(d => {
+          if (d.distância > dis) {
+            final.push(d)
+          }
+        })
+        res.status(200).jsonp(final)
+      })
+      .catch(e => {
+        res.status(506).jsonp({error: e})
+      })
+  }
+})
+
 module.exports = router;
