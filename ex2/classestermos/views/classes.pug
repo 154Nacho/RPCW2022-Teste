@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .w3-container.w3-pale-green
+    h1.w3-left CLAV: Classificação e Avaliação da Informação Pública
+    h2.w3-right Lista de Classes Nível 1 
+  table.w3-table-all
+    tr.w3-pale-blue 
+      th.w3-center Código 
+      th.w3-center Título
+    each c in lista 
+      tr 
+          td.w3-center
+            a(href="http://localhost:8005/classes/" + c.codigo)= c.codigo
+          td.w3-center= c.titulo
+  div.w3-pale-blue.w3-padding-16(style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;')
+            .w3-center
+                a(href='http://localhost:8005') Voltar à página principal

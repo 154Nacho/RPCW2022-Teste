@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    .w3-container.w3-pale-green
+        h1 Classe #{c.codigo} - Nível #{c.nivel}
+    .w3-container
+        h3= c.titulo
+        hr
+        p 
+            b Descrição: 
+            = c.descricao
+        hr
+        p
+            b Status: 
+            = c.status
+        hr 
+        
+        if c.filhos.length > 0
+            p 
+                b Filhos:
+            ul.w3-ul.w3-margin-bottom
+                each f in c.filhos
+                    li
+                        a(href="http://localhost:8005/classes/" + f.codigo)= f.codigo
+
+        if c.termosInd.length > 0
+            table.w3-table-all
+                tr.w3-pale-yellow
+                    th.w3-center Termo
+                each t in c.termosInd
+                    tr 
+                        td.w3-center
+                            a(href="http://localhost:8005/termos/")= t.termo
+        
+    div.w3-pale-blue.w3-padding-16(style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;')
+            .w3-center
+                a(href='http://localhost:8005') Voltar à página principal

@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .w3-container.w3-pale-green
+    h1= title
+  .w3-container.w3-pale-blue 
+    table.w3-table-all
+      tr.w3-pale-yellow 
+        th.w3-center Classes 
+        th.w3-center Termos de Índice
+        tr 
+            td.w3-center
+              a(href="http://localhost:8005/classes") Classes
+            td.w3-center
+              a(href="http://localhost:8005/termos") Termos de Índice
+            

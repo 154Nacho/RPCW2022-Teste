@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .w3-container.w3-pale-green
+    h1.w3-left CLAV: Classificação e Avaliação da Informação Pública
+    h2.w3-right Lista de Termos de Índice
+  table.w3-table-all
+    tr.w3-pale-blue 
+      th.w3-center Termo
+      th.w3-center Identificador Classe
+      th.w3-center Título Classe
+    each t in lista 
+      tr 
+          td.w3-center= t.termo
+          td.w3-center
+            a(href="http://localhost:8005/classes/" + t.idClasse)= t.idClasse
+          td.w3-center
+            a(href="http://localhost:8005/classes/" + t.idClasse)= t.tituloClasse   
+  div.w3-pale-blue.w3-padding-16(style='position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;')
+            .w3-center
+                a(href='http://localhost:8005') Voltar à página principal
